@@ -1,5 +1,10 @@
-It is the main codes and results of group.9 in COMP7404 project. We achieve the HFA and SHFA in:
-Wen LI, Lixin DUAN, Dong XU and Ivor W. TSANG, "Learning with Augmented Features for Supervised and Semi-supervised Heterogeneous Domain Adaptation," IEEE Transactions on Pattern Analysis and Machine Intelligence (T-PAMI), vol. 36(6), pp. 1134-1148, JUN 2014.
-There are details of two Tasks:
-1. Task1 is object recognition.
-   The preprocessing code is 
+It is the main codes and results of group.9 in COMP7404 project. The members are Ma Bohan 303637430, Liao Qingyao 3036374201, Yuan Shengyou 3036370918 and Diao Xinran 3036373726. 
+<br><br> We achieve the HFA and SHFA in:<br><br>
+ Wen LI, Lixin DUAN, Dong XU and Ivor W. TSANG, "Learning with Augmented Features for Supervised and Semi-supervised Heterogeneous Domain Adaptation," IEEE Transactions on Pattern Analysis and Machine Intelligence (T-PAMI), vol. 36(6), pp. 1134-1148, JUN 2014.
+There are details of two preprocessing Tasks:
+<br><br>1. Task1 is object recognition.
+<br><br>The preprocessing code is Task1_pre_processing.py. The paper used SURF to extract features and use K-means to get the vector. We find this method is not very effective and then it can't highlight advantages of HFA and SHFA over Hemap. So we used RESNET50 to extract features and find the accuracy of HFA and SHFA is much higher than the accuracy of Hemap, which is about 7%. In the preprocessing code, you can change the input file in line 53, change the parameter of PCA in line 61 and change the path to save the file in line 68, 69. The result is in file 'Task1_datas'.
+<br><br>For HFA and HFA codes, we referred to other people's code and modified it to run our processed data. Run HFA_main.m and you can get the result of accuracy, recall, F1-scores and confusion matrix. Run SHFA_main.m and you can get these evaluation indicators and confusion matrix. The confusion matrixs are in the file 'T1 confusion matrix'. You can change the input files in line 18-23 in HFA_main.m and change input files in line 26-31 in SHFA_main.m.
+<br><br>2. Task2 is text categorization.
+<br><br>The preprocessing code is Task1_pre_processing.py. We used the same method to deal with Reuters multilingual dataset and we add same tricks in the TF-IDF(in line 41-47). As a result, the accuracy of text categorization is higher than the result in paper. You can channge input file in line 28, change the parameter of PCA in line 52 and change the output file path in line 104, 105, 132 and 133. The result is in file 'Taske2_datas'.
+<br><br>For HFA and SHFA codes, they are the same as in Task 1 and you can only change the input path to run it. The accuracy, recall and F1-scores are in our report. The confusion matrixs are in file 'T2 confusion matrix'.
