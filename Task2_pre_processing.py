@@ -11,9 +11,7 @@ from sklearn.metrics import confusion_matrix, classification_report, hamming_los
 from sklearn.decomposition import PCA
 from scipy.sparse import save_npz, load_npz
 from sklearn.utils import resample
-from sklearn.feature_extraction.text import TfidfVectorizer  # 新增导入
-import matplotlib
-matplotlib.use('TkAgg')
+from sklearn.feature_extraction.text import TfidfVectorizer  
 
 categories = {'C15': 4587, 'CCAT': 8745, 'E21': 9625, 'ECAT': 5656, 'GCAT': 5745, 'M11': 45845}
 
