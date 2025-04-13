@@ -67,7 +67,7 @@ K_root  = [K_s_root zeros(n_s, n_t); zeros(n_t, n_s) K_t_root];
 K_t_root_inv = real(pinv(K_t_root));
 L_t_inv = [zeros(n_s, n_t); eye(n_t)] * K_t_root_inv;
 
-% do kernel decomposition for inference \y
+% do kernel decomposition for inference 
 aug_features    = sqrtm((1+param.sigma)*K+ones(size(K)));
 aug_features    = real(aug_features);
 
@@ -86,7 +86,7 @@ for c = 1:length(categories)
     [model, Us, labels, coefficients, rho, obj] = train_shfa_modified(source_labels, target_labels, K, K_root, aug_features, param);
     % testing
     K_test                  = getKernel(testSetFeatures, target_features, param_t);
-    dec_values(:, c)        = predict_ifa_semi_kernel(K_test, model, Us, labels, coefficients, rho, K_root, L_t_inv);    
+    dec_values(:, c)        = predict_ifa(K_test, model, Us, labels, coefficients, rho, K_root, L_t_inv);    
 end
 
 % =========================================================================
