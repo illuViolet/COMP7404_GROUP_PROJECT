@@ -1,6 +1,5 @@
-function dec_values = predict_ifa_semi_kernel(kernel, model, Us, labels, d, rho, K_root, L_t_inv)
-% kernel m-by-n_t,        n_t: number of target domain trianing samples
-% 
+function dec_values = predict_ifa(kernel, model, Us, labels, d, rho, K_root, L_t_inv)
+
 [n, n_t] = size(L_t_inv);
 n_s     = n - n_t;
 assert(size(labels, 1) == n);
