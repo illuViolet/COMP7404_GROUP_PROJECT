@@ -20,7 +20,6 @@ def filter_datas(file, target_file):
         with open(target_file, 'w') as document_write:
             for line in document_read:
                 target = line.split(None, 1)[0]
-                # 保留原始文本内容（原特征部分保持不变）
                 line_to_write = f'{categories[target]} {line[len(target):].strip()}\n'
                 document_write.write(line_to_write)
     return target_file
