@@ -1,0 +1,98 @@
+
+Reuters RCV1/RCV2 Multilingual, Multiview Text Categorization Test collection
+                           Distribution 1.0
+                          README file (v 1.0)
+                           26 September 2009
+
+                     Massih R. Amini, Cyril Goutte
+                   National Research Council Canada
+
+I. Introduction
+
+   This README describes Distribution 1.0 of the Reuters RCV1/RCV2 Multilingual, Multiview Text Categorization Test collection, a resource for research in information retrieval, machine learning, and other corpus-based research. The test collection contains feature characteristics of documents written in five different languages (English, French, German, Spanish and Italian) but sharing the same set of categories. In order to exploit information available from other languages, we used Machine Translation to produce translations of each document in the collection in all other languages before indexing. We used the Portage system for translations \cite{USLJ07}. For each language, we thus have the feature  characteristics of all documents written in that given language as well as the feature characteristics of documents translated into that language. 
+
+
+II. Availability
+
+   The collection is available from:
+
+   http://MultiLingReuters.iit.nrc.ca/MultiLingualReuters.tar.bz2
+
+
+III. Content
+
+    Uncompressing MultiLingualReuters.tar.bz2 will create the directory MultiLingualReutersCollection/ which contains 5 subdirectories EN, FR, GR, IT and SP, corresponding to the 5 languages. Each subdirectory in {EN, FR, GR, IT, SP} contains 5 files, each containing indexes of the documents written or translated in that language.  For example, EN contains files:
+ - Index_EN-EN : Original English documents
+ - Index_FR-EN : French documents translated to English
+ - Index_GR-EN : German documents translated to English
+ - Index_IT-EN : Italian documents translated to English
+ - Index_SP-EN : Spanish documents translated to English
+
+And similarly for the 4 other languages.
+
+Each file contains one indexed document per line, in a format similar to SVM_light.  Each line is of the form: <cat> <feature>:<value> <feature>:<value> ... where <cat> is the category label, ie one of C15, CCAT, E21, ECAT, GCAT or M11. <feature>:<value> is the feature, value pair, in ascending order of feature index.
+
+The order of documents is maintained in corresponding files, for example, FR/Index_EN-FR and EN/Index_EN-EN have the same number of documents (and therefore the same number of lines), in the same order. 
+
+
+IV. Copyright & Notification 
+
+   This test collection is publicly available *for research purposes only*.  
+
+   If you publish results based on this data set, please acknowledge its use, by referring to:
+
+M.-R. Amini, N. Usunier, C. Goutte. Learning from Multiple Partially Observed Views - an Application to Multilingual Text Categorization. Advances in Neural Information Processing Systems 22 (NIPS 2009), 2009. 
+
+
+V. Acknowledgements
+
+   We thank Reuters for making the RCV1/RCV2 data available and granting permission to distribute processed versions of it.
+
+
+VI. Dataset statistics 
+
+    We focused on six relatively populous categories: C15, CCAT, E21, ECAT, GCAT, M11. For each language and each class, we sampled up to 5000 documents from the RCV1 (for English) or RCV2 (for other languages). Documents belonging to more than one of our 6 classes were assigned the label of their smallest class.  This resulted in 12-30K documents per language, and 11-34K documents per class. The distribution of documents over languages and classes are:
+
+              Number of                   Vocabulary
+Language      documents     percentage       size
+************  **********   ************  ************ 
+English        18,758         16.78        21,531
+French         26,648         23.45        24,893
+German         29,953         26.80        34,279
+Italian        24,039         21.51        15,506
+Spanish        12,342         11.46        11,547
+-------
+Total         111,740
+
+The distribution of classes in the whole collection is
+           Number of                 
+Class      documents     percentage  
+*********  **********   ************ 
+C15          18,816         16.84
+CCAT         21,426         19.17
+E21          13,701         12.26
+ECAT         19,198         17.18
+GCAT         19,178         17.16
+M11          19,421         17.39
+
+
+In experiments that we conducted in \cite{AUG09}, we considered each document available in a given language as the observed view for an example and all translated documents were used as the other views for that example, generated using Machine Translation. Results shown in this study were averaged over 10 random samples of 10 labeled examples per view for training, and 20% of the collection for testing. 
+
+
+VII. Bibliography
+
+@inproceedings{AUG09,
+  author = "Massih-Reza Amini and Nicolas Usunier and Cyril Goutte",
+  title = "Learning from Multiple Partially Observed Views - an Application to Multilingual Text Categorization",
+  booktitle = "NIPS 22",
+  year = "2009"
+}
+
+@inproceedings{USLJ07,
+  author = "Nicola Ueffing and Michel Simard and Samuel Larkin and J.~Howard Johnson",
+  title = "{NRC}'s {PORTAGE} system for {WMT} 2007",
+  booktitle = "In ACL-2007 Second Workshop on SMT",
+  pages = "185--188",
+  year = "2007"
+}
+
