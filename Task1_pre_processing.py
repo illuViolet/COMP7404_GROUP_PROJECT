@@ -10,8 +10,6 @@ from sklearn.metrics import accuracy_score, classification_report, ConfusionMatr
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.utils import resample
-import matplotlib
-matplotlib.use('TkAgg')
 
 # prepare datasets
 def load_data(data_root):
