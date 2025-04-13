@@ -1,6 +1,4 @@
 It is the main codes and results of group.9 in COMP7404 project. The members are Ma Bohan 303637430, Liao Qingyao 3036374201, Yuan Shengyou 3036370918 and Diao Xinran 3036373726. 
-<br><br> We achieve the HFA and SHFA in:<br><br>
- Wen LI, Lixin DUAN, Dong XU and Ivor W. TSANG, "Learning with Augmented Features for Supervised and Semi-supervised Heterogeneous Domain Adaptation," IEEE Transactions on Pattern Analysis and Machine Intelligence (T-PAMI), vol. 36(6), pp. 1134-1148, JUN 2014.
 There are details of two preprocessing Tasks:
 <br><br>1. Task1 is object recognition.
 <br><br>The preprocessing code is Task1_pre_processing.py. The paper used SURF to extract features and use K-means to get the vector. We find this method is not very effective and then it can't highlight advantages of HFA and SHFA over Hemap. So we used RESNET50 to extract features and find the accuracy of HFA and SHFA is much higher than the accuracy of Hemap, which is about 7%. In the preprocessing code, you can change the input file in line 53, change the parameter of PCA in line 61 and change the path to save the file in line 68, 69. The result is in file 'Task1_datas'.
